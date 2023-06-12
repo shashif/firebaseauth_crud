@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebaseauth/pages/auth_page.dart';
-import 'package:firebaseauth/pages/home_page.dart';
-import 'package:firebaseauth/pages/login_page.dart';
-import 'package:firebaseauth/pages/utils.dart';
-import 'package:firebaseauth/pages/verify_emailpage.dart';
+
+
+import 'package:firebaseauth/auth/utils.dart';
+import 'package:firebaseauth/auth/verify_emailpage.dart';
 import 'package:flutter/material.dart';
 
 void main() async {

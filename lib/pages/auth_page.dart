@@ -1,5 +1,5 @@
-import 'package:firebaseauth/pages/login_page.dart';
-import 'package:firebaseauth/pages/signup_page.dart';
+import 'package:firebaseauth/auth/login_page.dart';
+import 'package:firebaseauth/auth/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class AuthPage extends StatefulWidget {
@@ -14,7 +14,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context)=>
     isLogin ? LoginPage(onClickedSignUp: toggle,)
-        : SignUpPage(onClickedSignIn: toggle);
+        : SignUpPage();
     void toggle()=> setState(() {
       isLogin = !isLogin;
     });
