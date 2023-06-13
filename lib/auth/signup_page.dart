@@ -16,11 +16,13 @@ class _SignUpPageState extends State<SignUpPage> {
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -62,6 +64,12 @@ class _SignUpPageState extends State<SignUpPage> {
                     obscureText: true,
                   ),
                   const SizedBox(height: 10),
+                  MyTextField(
+                    controller: confirmPasswordController,
+                    hintText: 'Confirm Password',
+                    obscureText: true,
+                  ),
+                  const SizedBox(height: 10),
                   MyButton(
                     text: 'Submit',
                     onTap: signUp,
@@ -79,10 +87,19 @@ class _SignUpPageState extends State<SignUpPage> {
   Future<void> signUp() async {
     final isValid = formKey.currentState!.validate();
     if (!isValid) return;
+
+    final password = passwordController.text.trim();
+    final confirmPassword = confirmPasswordController.text.trim();
+
+    if (password != confirmPassword) {
+      Utils.showSnackBar("Passwords don't match");
+      return;
+    }
+
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
-        password: passwordController.text.trim(),
+        password: password,
       );
       Navigator.of(context).pop();
       // User successfully created
