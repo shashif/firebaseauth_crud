@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebaseauth/pages/auth_page.dart';
+import 'package:firebaseauth/auth/auth_page.dart';
 
 
 import 'package:firebaseauth/auth/utils.dart';
@@ -40,7 +40,9 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: StreamBuilder<User?>(
+        body:
+
+        StreamBuilder<User?>(
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
@@ -56,6 +58,10 @@ class MainPage extends StatelessWidget {
               } else {
                 return AuthPage();
               }
-            }));
+            })
+
+
+
+    );
   }
 }

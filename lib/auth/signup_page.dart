@@ -8,6 +8,7 @@ import 'my_button.dart';
 import 'my_textfield.dart';
 
 class SignUpPage extends StatefulWidget {
+
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }

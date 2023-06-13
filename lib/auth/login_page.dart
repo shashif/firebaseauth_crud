@@ -11,10 +11,10 @@ import 'my_textfield.dart';
 
 
 class LoginPage extends StatefulWidget {
-  final VoidCallback onClickedSignUp;
-
-
-  const LoginPage({Key? key, required this.onClickedSignUp}) : super(key: key);
+  // final VoidCallback onClickedSignUp;
+  //
+  //
+  // const LoginPage({Key? key, required this.onClickedSignUp}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -181,6 +181,8 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+
+
                   ],
                 ),
               ],
